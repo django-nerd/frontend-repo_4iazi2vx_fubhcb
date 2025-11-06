@@ -1,26 +1,35 @@
-import { useState } from 'react'
+import React from 'react'
+import Hero from './components/Hero'
+import ConceptDiagram from './components/ConceptDiagram'
+import Comparison from './components/Comparison'
+import InteractiveModule from './components/InteractiveModule'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <div className="min-h-screen bg-gradient-to-br from-white to-indigo-50 text-gray-900">
+      <header className="sticky top-0 backdrop-blur bg-white/70 border-b z-20">
+        <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
+          <div className="font-extrabold tracking-tight text-xl">Deleuze × Heidegger</div>
+          <nav className="hidden md:flex items-center gap-6 text-sm text-gray-700">
+            <a href="#diagram" className="hover:text-gray-900">Visuale</a>
+            <a href="#comparison" className="hover:text-gray-900">Confronto</a>
+            <a href="#interactive" className="hover:text-gray-900">Interattivo</a>
+          </nav>
         </div>
-      </div>
+      </header>
+
+      <main>
+        <Hero />
+        <div id="diagram"><ConceptDiagram /></div>
+        <div id="comparison"><Comparison /></div>
+        <div id="interactive"><InteractiveModule /></div>
+      </main>
+
+      <footer className="border-t mt-10">
+        <div className="mx-auto max-w-6xl px-6 py-10 text-sm text-gray-600">
+          Questo sito è una sintesi didattica: suggerisce collegamenti concettuali senza sostituire la lettura dei testi.
+        </div>
+      </footer>
     </div>
   )
 }
